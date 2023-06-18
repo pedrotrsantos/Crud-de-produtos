@@ -19,7 +19,7 @@ Após a instalação do MySQL, siga as etapas abaixo para configurar o banco de 
 1. Abra o prompt de comando.
 2. Navegue até o diretório raiz do projeto do back-end.
 3. Execute o seguinte comando para instalar as dependências do projeto: `npm install`
-4. Após a instalação, abra o arquivo `config/config.json` e verifique as configurações do banco de dados. Certifique-se de que as informações de `username`, `password`, `database` e `host` estejam corretas para o seu ambiente.
+4. Após a instalação, abra o arquivo `config/config.json` e verifique as configurações do banco de dados. Certifique-se de que as informações de `username`, `password` e `host` estejam corretas para o seu ambiente.
 
 Exemplo de arquivo `config/config.json`:
 
@@ -59,8 +59,8 @@ Para executar o projeto completo (front-end e back-end), siga as etapas abaixo:
 
 1. Abra dois prompts de comando.
 2. No primeiro prompt, navegue até o diretório raiz (fora do `src`) do diretório do back-end.
-3. Execute o seguinte comando para iniciar o servidor do Node.js: `nodemon index.js`
-4. No segundo prompt, navegue até o diretório raiz do projeto do front-end.
+3. Execute o seguinte comando para iniciar o servidor do Node.js: `node index.js`
+4. No segundo prompt, navegue até o diretório raiz do projeto do front-end e rode `npm install`.
 5. Execute o seguinte comando para iniciar o servidor de desenvolvimento do React.js: `npm run dev`
 
 O front-end React será iniciado e estará acessível em seu navegador através do endereço:
