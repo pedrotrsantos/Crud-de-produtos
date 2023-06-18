@@ -31,25 +31,13 @@ Exemplo de arquivo `config/config.json`:
     "database": "projetotask",
     "host": "localhost",
     "dialect": "mysql"
-  },
-  "test": {
-    "username": "root",
-    "password": "123456",
-    "database": "projetotask",
-    "host": "localhost",
-    "dialect": "mysql"
-  },
-  "production": {
-    "username": "root",
-    "password": "123456",
-    "database": "projetotask",
-    "host": "localhost",
-    "dialect": "mysql"
   }
 }
 ```
 
-5. No prompt de comando, execute o seguinte comando para criar o banco de dados: `npx sequelize-cli db:create`
+5. Certifique-se de estar no diretório `src` do projeto do back-end.
+
+6. No prompt de comando, execute o seguinte comando para criar o banco de dados: `npx sequelize-cli db:create`
 
 Isso criará o banco de dados com base nas configurações fornecidas no arquivo `config.json`.
 
@@ -58,54 +46,10 @@ Isso criará o banco de dados com base nas configurações fornecidas no arquivo
 Após a criação do banco de dados, você pode usar o Sequelize para criar as tabelas necessárias. Siga as etapas abaixo:
 
 1. Certifique-se de estar no diretório `src` do projeto do back-end.
-2. No prompt de comando, execute o seguinte comando para gerar um arquivo de migração: `npx sequelize-cli migration:generate --name nome-da-migracao` (sugiro que o nome seja neste formato `migration01`, `migration02`, etc.)
-   Isso criará um arquivo de migração na pasta `src/migrations`.
-3. Abra o arquivo de migração gerado na pasta `src/migrations` e defina as instruções para criar as tabelas dessa forma:
 
-```javascript
-"use strict";
+2. No prompt de comando, execute o seguinte comando para aplicar a migração e criar as tabelas no banco de dados: `npx sequelize-cli db:migrate`
 
-module.exports = {
-  up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable("Produtos", {
-      id: {
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
-        type: Sequelize.INTEGER,
-      },
-      nome: {
-        allowNull: false,
-        type: Sequelize.STRING,
-      },
-      quantidade: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-      },
-      valor: {
-        allowNull: false,
-        type: Sequelize.FLOAT,
-      },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE,
-      },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE,
-      },
-    });
-  },
-
-  down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable("Produtos");
-  },
-};
-```
-
-4. No prompt de comando, execute o seguinte comando para aplicar a migração e criar as tabelas no banco de dados: `npx sequelize-cli db:migrate`
-
-Isso executará todas as migrações pendentes e criará as tabelas correspondentes no banco de dados de acordo com as definições fornecidas nas migrações.
+Isso executará a migração pendente e criará as tabelas correspondentes no banco de dados de acordo com as definições fornecidas.
 
 Após concluir essas etapas, o banco de dados será criado e as tabelas serão geradas usando o Sequelize. Agora você pode prosseguir com a execução do projeto.
 
